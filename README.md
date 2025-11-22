@@ -1,17 +1,19 @@
 # Form Builder
 
-A self-hosted form builder built with [Next.js](https://nextjs.org/) and [C1 by Thesys](https://thesys.dev/). You can create dynamic forms using natural language, just describe what you need and the app generates the fields automatically. Each form has its own listing and submission pages, with all responses stored in MongoDB.
+A self-hosted form builder built with [Next.js](https://nextjs.org/) and [C1 by Thesys](https://thesys.dev/). Describe the form you need in natural language and the app instantly generates the UI spec automatically.
+
+I have covered the architecture, data flow, system prompt and how everything works behind the scenes in this [blog post](https://dev.to/anmolbaranwal/i-built-a-self-hosted-google-forms-alternative-and-made-it-open-source-4f11).
 
 To use the application:
 
-1. Fork this repository.
+1. Fork this repository and clone it.
 2. Set your admin password and other credentials in `.env` (check the format below).
 3. Deploy it on any hosting provider (Vercel, Netlify, Render) or your own server.
 4. Visit `/login` and enter your admin password.
-3. After successful login, you will be redirected to the chat interface at `/`.
-4. You can now create forms as needed (see the demo below).
+5. After successful login, you will be redirected to the chat interface at `/`.
+6. You can now create forms as needed (see the demo below).
 
-https://github.com/user-attachments/assets/977e80bc-1a5a-46ba-9999-b1c34ffc060a
+https://github.com/user-attachments/assets/4747fa52-25be-40e9-bed2-e5d751906fdd
 
 ## Project Structure
 
@@ -109,8 +111,7 @@ Open the `.env` file and set your values:
 ```env
 THESYS_API_KEY=<your-thesys-api-key>
 MONGODB_URI=<your-mongodb-uri>
-THESYS_MODEL=c1/anthropic/claude-sonnet-4/v-20250617
-NEXT_PUBLIC_APP_URL=http://localhost:3000
+THESYS_MODEL=c1/anthropic/claude-sonnet-4/v-20250930
 ADMIN_PASSWORD=<your-admin-password>
 ```
 
