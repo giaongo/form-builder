@@ -17,7 +17,8 @@ export default function LoginPage() {
     if (res.ok) {
       window.location.href = '/'
     } else {
-      setError('Wrong password')
+      const data = await res.json()
+      setError(data.error || 'Something went wrong')
     }
   }
 
