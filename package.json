@@ -6,11 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate-secret": "node -e \"console.log(require('crypto').randomBytes(32).toString('hex'))\""
   },
   "dependencies": {
     "@thesysai/genui-sdk": "^0.6.33",
     "eslint-plugin-jsx-a11y": "^6.10.2",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.18.2",
     "next": "15.5.2",
     "ogl": "^1.0.11",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
