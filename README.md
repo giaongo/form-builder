@@ -2,7 +2,7 @@
 
 A self-hosted form builder built with [Next.js](https://nextjs.org/) and [C1 by Thesys](https://thesys.dev/). Describe the form you need in natural language and the app instantly generates the UI spec automatically.
 
-I have covered the architecture, data flow, system prompt and how everything works behind the scenes in this [blog post](https://dev.to/anmolbaranwal/i-built-a-self-hosted-google-forms-alternative-and-made-it-open-source-4f11).
+This project uses signed JSON Web Tokens (JWT) stored in an HTTP-only cookie for admin authentication. I have covered the architecture, data flow, system prompt and how everything works behind the scenes in this [blog post](https://dev.to/anmolbaranwal/i-built-a-self-hosted-google-forms-alternative-and-made-it-open-source-4f11).
 
 To use the application:
 
@@ -113,7 +113,18 @@ THESYS_API_KEY=<your-thesys-api-key>
 MONGODB_URI=<your-mongodb-uri>
 THESYS_MODEL=c1/anthropic/claude-sonnet-4/v-20250930
 ADMIN_PASSWORD=<your-admin-password>
+JWT_SECRET=<your-jwt-secret> # generate with: npm run generate-secret
 ```
+
+To generate the `JWT_SECRET`, just run the following command and copy/paste into `.env`:
+
+```
+npm run generate-secret # Node.js (recommended)
+```
+
+For Linux/Mac, you can also use: `openssl rand -hex 32`
+
+> ℹ There are open source generators out there ([1](https://generate-secret.vercel.app/32), [2](https://secrets-generator.vercel.app/)). Be careful though, we don’t know the entropy level of their server and we don’t know the code that is really running behind it so for a real production I advise you to generate it yourself with the above command.
 
 ## Getting Started
 
